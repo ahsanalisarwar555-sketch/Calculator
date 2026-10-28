@@ -3,60 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acrylic Glass Calculator</title>
+  <title>Free Online Calculator | Simple, Fast &amp; Free Calculator</title>
+  <meta name="description" content="Free online calculator for basic math. Fast, simple, and mobile-friendly with memory keys and calculation history. No sign-up or installation required.">
+  <link rel="canonical" href="https://free-calculator-max.vercel.app/">
+  <meta name="theme-color" content="#1e293b">
+
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230072ff'%3E%3Crect x='4' y='2' width='16' height='20' rx='3' fill='%231e293b'/%3E%3Crect x='7' y='5' width='10' height='4' rx='1' fill='%2338efec'/%3E%3Ccircle cx='8' cy='12' r='1' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='12' r='1' fill='%23ffffff'/%3E%3Ccircle cx='16' cy='12' r='1' fill='%23ffffff'/%3E%3Ccircle cx='8' cy='15' r='1' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='15' r='1' fill='%23ffffff'/%3E%3Ccircle cx='16' cy='15' r='1' fill='%23ffffff'/%3E%3Ccircle cx='8' cy='18' r='1' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='18' r='1' fill='%23ffffff'/%3E%3Ccircle cx='16' cy='18' r='1' fill='%2300d2ff'/%3E%3C/svg%3E">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://free-calculator-max.vercel.app/">
+  <meta property="og:title" content="Free Online Calculator | Simple, Fast &amp; Free Calculator">
+  <meta property="og:description" content="Free online calculator for basic math. Fast, simple, and mobile-friendly with memory keys and calculation history. No sign-up required.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Online Calculator | Simple, Fast &amp; Free Calculator">
+  <meta name="twitter:description" content="Free online calculator for basic math. Fast, simple, and mobile-friendly with memory keys and calculation history. No sign-up required.">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Online Calculator",
+    "url": "https://free-calculator-max.vercel.app/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this calculator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this online calculator is 100% free with no hidden fees or limitations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is designed with a responsive layout that adapts smoothly to smartphones, tablets, and desktop browsers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to register or sign up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No registration, account creation, or software installation is required. You can start calculating immediately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the calculator support keyboard shortcuts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can use physical keyboard number keys, standard operators (+, -, *, /), Enter/Equals, Escape/C for clear, and Backspace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it store my calculation history across sessions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The calculator displays your immediate active step above the current number, but it does not store historical records permanently after the browser tab is closed."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Scoped SEO Content Styling - keeps body & calculator untouched */
+    .page-wrapper {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .seo-content {
+      width: 100%;
+      margin-top: 36px;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .seo-content h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .seo-content p {
+      font-size: 15px;
+      color: #475569;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .seo-card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 25px -5px rgba(30, 41, 59, 0.05);
+    }
+    .seo-card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .seo-card ul {
+      list-style-position: inside;
+      padding-left: 4px;
+      font-size: 14px;
+      color: #475569;
+    }
+    .seo-card ul li {
+      margin-bottom: 8px;
+    }
+    .faq-item {
+      margin-bottom: 14px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-item h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .faq-item p {
+      text-align: left;
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Ambient Light Reflection Behind Body -->
   <div class="ambient-glow"></div>
 
-  <main class="calculator-glass">
-    <!-- Glowing Screen -->
-    <section class="screen-glow">
-      <div class="screen-content">
-        <div class="history" id="history"></div>
-        <div class="current-value" id="currentValue">0</div>
-      </div>
-    </section>
+  <div class="page-wrapper">
+    <main class="calculator-glass">
+      <!-- Glowing Screen -->
+      <section class="screen-glow">
+        <div class="screen-content">
+          <div class="history" id="history"></div>
+          <div class="current-value" id="currentValue">0</div>
+        </div>
+      </section>
 
-    <!-- Keypad -->
-    <section class="keypad">
-      <!-- Row 1: MC, MR, M+, M-, AC -->
-      <button class="btn btn-glass-mem" data-action="mc">MC</button>
-      <button class="btn btn-glass-mem" data-action="mr">MR</button>
-      <button class="btn btn-glass-mem" data-action="m-plus">M+</button>
-      <button class="btn btn-glass-mem" data-action="m-minus">M&minus;</button>
-      <button class="btn btn-neon-red" data-action="clear">AC</button>
+      <!-- Keypad -->
+      <section class="keypad">
+        <!-- Row 1: MC, MR, M+, M-, AC -->
+        <button class="btn btn-glass-mem" data-action="mc">MC</button>
+        <button class="btn btn-glass-mem" data-action="mr">MR</button>
+        <button class="btn btn-glass-mem" data-action="m-plus">M+</button>
+        <button class="btn btn-glass-mem" data-action="m-minus">M&minus;</button>
+        <button class="btn btn-neon-red" data-action="clear">AC</button>
 
-      <!-- Row 2: 7, 8, 9, ÷, (filler/clear) -->
-      <button class="btn btn-dark-glass" data-num="7">7</button>
-      <button class="btn btn-dark-glass" data-num="8">8</button>
-      <button class="btn btn-dark-glass" data-num="9">9</button>
-      <button class="btn btn-operator" data-op="/">÷</button>
-      <button class="btn btn-operator" data-op="*">&times;</button>
+        <!-- Row 2: 7, 8, 9, ÷, × -->
+        <button class="btn btn-dark-glass" data-num="7">7</button>
+        <button class="btn btn-dark-glass" data-num="8">8</button>
+        <button class="btn btn-dark-glass" data-num="9">9</button>
+        <button class="btn btn-operator" data-op="/">÷</button>
+        <button class="btn btn-operator" data-op="*">&times;</button>
 
-      <!-- Row 3: 4, 5, 6, -, (slot) -->
-      <button class="btn btn-dark-glass" data-num="4">4</button>
-      <button class="btn btn-dark-glass" data-num="5">5</button>
-      <button class="btn btn-dark-glass" data-num="6">6</button>
-      <button class="btn btn-operator" data-op="-">&minus;</button>
-      <button class="btn btn-operator" data-op="+">+</button>
+        <!-- Row 3: 4, 5, 6, -, + -->
+        <button class="btn btn-dark-glass" data-num="4">4</button>
+        <button class="btn btn-dark-glass" data-num="5">5</button>
+        <button class="btn btn-dark-glass" data-num="6">6</button>
+        <button class="btn btn-operator" data-op="-">&minus;</button>
+        <button class="btn btn-operator" data-op="+">+</button>
 
-      <!-- Row 4: 1, 2, 3, +, = -->
-      <button class="btn btn-dark-glass" data-num="1">1</button>
-      <button class="btn btn-dark-glass" data-num="2">2</button>
-      <button class="btn btn-dark-glass" data-num="3">3</button>
-      <button class="btn btn-dark-glass" data-num=".">.</button>
-      <button class="btn btn-neon-blue btn-tall" data-action="equals">=</button>
+        <!-- Row 4: 1, 2, 3, ., = -->
+        <button class="btn btn-dark-glass" data-num="1">1</button>
+        <button class="btn btn-dark-glass" data-num="2">2</button>
+        <button class="btn btn-dark-glass" data-num="3">3</button>
+        <button class="btn btn-dark-glass" data-num=".">.</button>
+        <button class="btn btn-neon-blue btn-tall" data-action="equals">=</button>
 
-      <!-- Row 5: 0 spans across -->
-      <button class="btn btn-dark-glass btn-wide-zero" data-num="0">0</button>
-    </section>
-  </main>
+        <!-- Row 5: 0 spans across -->
+        <button class="btn btn-dark-glass btn-wide-zero" data-num="0">0</button>
+      </section>
+    </main>
+
+    <!-- SEO Content Section -->
+    <article class="seo-content">
+      <h1>Free Online Calculator</h1>
+      <p>This free online calculator performs basic math including addition, subtraction, multiplication, and division, along with memory functions and real-time step history. It works seamlessly across mobile and desktop browsers with no registration or sign-up needed.</p>
+
+      <section class="seo-card">
+        <h2>How to Use</h2>
+        <ul>
+          <li>Enter numbers using the on-screen keypad or your physical keyboard.</li>
+          <li>Choose any arithmetic operator (+, &minus;, &times;, &divide;) to set the calculation.</li>
+          <li>Press the equals key (=) or hit Enter to compute the final result.</li>
+          <li>Use memory keys (M+, M-, MR, MC) to accumulate and recall stored values.</li>
+          <li>Tap AC (All Clear) or Escape on your keyboard to clear all inputs instantly.</li>
+        </ul>
+      </section>
+
+      <section class="seo-card">
+        <h2>Features</h2>
+        <ul>
+          <li><strong>Arithmetic Operations:</strong> Addition, subtraction, multiplication, and division with floating decimal precision.</li>
+          <li><strong>Memory Functions:</strong> Includes Memory Store (M+), Memory Subtract (M-), Memory Recall (MR), and Memory Clear (MC).</li>
+          <li><strong>Active History:</strong> Live display of previous operands and active operators.</li>
+          <li><strong>Keyboard Support:</strong> Complete input capability via physical keyboard (digits, operators, Enter, Backspace, and Escape).</li>
+          <li><strong>Fast &amp; Responsive:</strong> Lightweight frosted-glass design optimized for speed and touchscreens.</li>
+        </ul>
+      </section>
+
+      <section class="seo-card">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h3>Is this calculator free to use?</h3>
+          <p>Yes, this online calculator is 100% free with no hidden fees or limitations.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does it work on mobile devices?</h3>
+          <p>Yes, it is designed with a responsive layout that adapts smoothly to smartphones, tablets, and desktop browsers.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need to register or sign up?</h3>
+          <p>No registration, account creation, or software installation is required. You can start calculating immediately.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does the calculator support keyboard shortcuts?</h3>
+          <p>Yes, you can use physical keyboard number keys, standard operators (+, -, *, /), Enter/Equals, Escape/C for clear, and Backspace.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does it store my calculation history across sessions?</h3>
+          <p>The calculator displays your immediate active step above the current number, but it does not store historical records permanently after the browser tab is closed.</p>
+        </div>
+      </section>
+    </article>
+  </div>
 
   <script src="script.js"></script>
 </body>
