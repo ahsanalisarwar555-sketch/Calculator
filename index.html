@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acrylic Glass Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Ambient Light Reflection Behind Body -->
+  <div class="ambient-glow"></div>
+
+  <main class="calculator-glass">
+    <!-- Glowing Screen -->
+    <section class="screen-glow">
+      <div class="screen-content">
+        <div class="history" id="history"></div>
+        <div class="current-value" id="currentValue">0</div>
+      </div>
+    </section>
+
+    <!-- Keypad -->
+    <section class="keypad">
+      <!-- Row 1: MC, MR, M+, M-, AC -->
+      <button class="btn btn-glass-mem" data-action="mc">MC</button>
+      <button class="btn btn-glass-mem" data-action="mr">MR</button>
+      <button class="btn btn-glass-mem" data-action="m-plus">M+</button>
+      <button class="btn btn-glass-mem" data-action="m-minus">M&minus;</button>
+      <button class="btn btn-neon-red" data-action="clear">AC</button>
+
+      <!-- Row 2: 7, 8, 9, ÷, (filler/clear) -->
+      <button class="btn btn-dark-glass" data-num="7">7</button>
+      <button class="btn btn-dark-glass" data-num="8">8</button>
+      <button class="btn btn-dark-glass" data-num="9">9</button>
+      <button class="btn btn-operator" data-op="/">÷</button>
+      <button class="btn btn-operator" data-op="*">&times;</button>
+
+      <!-- Row 3: 4, 5, 6, -, (slot) -->
+      <button class="btn btn-dark-glass" data-num="4">4</button>
+      <button class="btn btn-dark-glass" data-num="5">5</button>
+      <button class="btn btn-dark-glass" data-num="6">6</button>
+      <button class="btn btn-operator" data-op="-">&minus;</button>
+      <button class="btn btn-operator" data-op="+">+</button>
+
+      <!-- Row 4: 1, 2, 3, +, = -->
+      <button class="btn btn-dark-glass" data-num="1">1</button>
+      <button class="btn btn-dark-glass" data-num="2">2</button>
+      <button class="btn btn-dark-glass" data-num="3">3</button>
+      <button class="btn btn-dark-glass" data-num=".">.</button>
+      <button class="btn btn-neon-blue btn-tall" data-action="equals">=</button>
+
+      <!-- Row 5: 0 spans across -->
+      <button class="btn btn-dark-glass btn-wide-zero" data-num="0">0</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
